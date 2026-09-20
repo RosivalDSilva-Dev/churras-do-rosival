@@ -1,0 +1,595 @@
+/* ==========================================================================
+   FOLHA DE ESTILO: CHURRASCO NOME DO ALUNO (SIMPLES E FUNCIONAL)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.5;
+  padding-bottom: 30px;
+}
+
+/* Cabeçalho Obrigatório */
+.cabecalho {
+  background-color: #b91c1c;
+  color: #ffffff;
+  text-align: center;
+  padding: 24px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.cabecalho h1 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.cabecalho p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Container e Cards */
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.card h2 {
+  color: #b91c1c;
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #fecaca;
+  padding-bottom: 6px;
+}
+
+.subtitulo {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+/* Ações do Topo da Lista de Convidados */
+.botoes-convidados-topo {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.btn-destaque {
+  background-color: #15803d;
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  width: auto;
+}
+.btn-destaque:hover { background-color: #166534; }
+
+.btn-limpar {
+  background-color: #64748b;
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  width: auto;
+}
+.btn-limpar:hover { background-color: #475569; }
+
+/* Caixa de Cadastro de Convidado */
+.caixa-cadastro-convidado {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.caixa-cadastro-convidado h3 {
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+  color: #334155;
+}
+
+.form-convidado-linha {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.campo-flex {
+  flex: 1 1 200px;
+}
+
+.campo-btn {
+  margin-bottom: 10px;
+}
+
+.btn-remover-tabela {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.btn-remover-tabela:hover { background: #fecaca; }
+
+/* 1. Tabela dos 30 Convidados */
+.tabela-container {
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.tabela th, .tabela td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabela th {
+  background-color: #f8fafc;
+  position: sticky;
+  top: 0;
+  color: #334155;
+}
+
+.tabela tr:hover td {
+  background-color: #f8fafc;
+}
+
+.tag-homem { background: #dbeafe; color: #1d4ed8; font-weight: bold; padding: 2px 8px; border-radius: 4px; display: inline-block; font-size: 0.8rem; }
+.tag-mulher { background: #fce7f3; color: #be185d; font-weight: bold; padding: 2px 8px; border-radius: 4px; display: inline-block; font-size: 0.8rem; }
+.tag-crianca { background: #fef3c7; color: #d97706; font-weight: bold; padding: 2px 8px; border-radius: 4px; display: inline-block; font-size: 0.8rem; }
+
+/* Painel de Contagem */
+.painel-contagem {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.92rem;
+}
+
+.painel-contagem .destaque {
+  font-weight: bold;
+  color: #b91c1c;
+}
+
+/* 2. Formulários de Adição de Produtos */
+.painel-adicionar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.caixa-adicionar {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.caixa-adicionar h3 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #334155;
+}
+
+.campo {
+  margin-bottom: 10px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #475569;
+}
+
+.campo input, .campo select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.campo-linha {
+  display: flex;
+  gap: 10px;
+}
+
+.campo-linha > .campo {
+  min-width: 0;          /* evita que as caixas estourem a largura */
+}
+
+.btn {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover { opacity: 0.9; }
+.btn-primario { background-color: #b91c1c; color: #fff; }
+.btn-secundario { background-color: #0284c7; color: #fff; }
+
+/* Alerta de Validação da Regra de 10 a 20 */
+.alerta {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.alerta-valido {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.alerta-invalido {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* Grade de Produtos Inseridos */
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card-item {
+  min-width: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-item:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  border-color: #94a3b8;
+}
+
+/* Foto e Tooltip Flutuante no Hover */
+.card-item-foto-wrap {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  background-color: #0f172a;
+}
+
+.card-item-foto-wrap img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+/* Conteúdo interno do card */
+.card-item-conteudo {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-item-conteudo h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.card-item-tipo {
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.card-item-valor {
+  font-size: 0.92rem;
+  font-weight: bold;
+  color: #b91c1c;
+  margin-bottom: 6px;
+}
+
+/* Botão e painel de detalhes (quem vai levar) */
+.btn-detalhes {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.btn-detalhes:hover { background: #e2e8f0; }
+
+.painel-detalhes {
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+
+.detalhes-titulo {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fb923c;
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 3px;
+}
+
+.detalhes-lista {
+  list-style: none;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.detalhes-lista li {
+  padding: 3px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.detalhes-lista li:last-child { border-bottom: none; }
+.detalhes-lista li strong { color: #fdba74; white-space: nowrap; }
+
+/* Formulário para associar quem vai levar */
+.caixa-associar {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.caixa-associar label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: bold;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.linha-associar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.linha-associar select {
+  flex: 1;
+  min-width: 0;          /* deixa o select encolher em vez de estourar o card */
+  padding: 5px;
+  font-size: 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+.linha-associar input {
+  width: 60px;
+  flex-shrink: 0;
+  padding: 5px;
+  font-size: 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+.btn-add-pessoa {
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.btn-add-pessoa:hover { background: #0369a1; }
+
+.lista-tags-responsaveis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.tag-resp-item {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-x-resp {
+  background: transparent;
+  border: none;
+  color: #b91c1c;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.btn-remover {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.btn-remover:hover { background: #fecaca; }
+
+/* 3. Comparativo Final */
+.regras-consumo {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+}
+
+.tabela-comparativa {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabela-comparativa th, .tabela-comparativa td {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.92rem;
+}
+
+.tabela-comparativa th {
+  background-color: #f8fafc;
+}
+
+.status-ok {
+  color: #166534;
+  font-weight: bold;
+  background-color: #dcfce7;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.status-falta {
+  color: #991b1b;
+  font-weight: bold;
+  background-color: #fee2e2;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Rodapé */
+.rodape {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: 20px;
+}
+
+/* ===================================================================
+   AJUSTES PARA CELULAR (telas estreitas)
+   =================================================================== */
+.tabela-comparativa-container {
+  width: 100%;
+  overflow-x: auto;       /* se ainda não couber, rola só a tabela */
+}
+
+@media (max-width: 600px) {
+  /* No celular, cada linha da tabela vira um "cartão" empilhado */
+  .tabela-comparativa thead {
+    display: none;
+  }
+  .tabela-comparativa,
+  .tabela-comparativa tbody,
+  .tabela-comparativa tr,
+  .tabela-comparativa td {
+    display: block;
+    width: 100%;
+  }
+  .tabela-comparativa tr {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .tabela-comparativa td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    font-size: 0.88rem;
+    text-align: right;
+  }
+  .tabela-comparativa td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #475569;
+    text-align: left;
+  }
+  .tabela-comparativa td.celula-categoria {
+    display: block;
+    text-align: left;
+    background: #f1f5f9;
+  }
+  .tabela-comparativa td.celula-categoria::before {
+    content: none;
+  }
+}
