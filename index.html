@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHURRAS DO ROSIVAL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <header class="cabecalho">
+    <h1>CHURRAS DO ROSIVAL</h1>
+    <p>GESTAO E PLANEJAMENTO DE CHURRASCO</p>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================================================================
+         1. LISTA DE CONVIDADOS (Nome, Sexo, Classificação de idade)
+         Opção de Cadastrar ou Carregar 30 Pré-preenchidos
+         =================================================================== -->
+    <section class="card">
+      <h2>1. Lista de Convidados</h2>
+      <p class="subtitulo">Cadastre os convidados ou clique no botão para carregar a lista com os 30 fictícios:</p>
+      
+      <!-- Barra de Ações Rápidas -->
+      <div class="botoes-convidados-topo">
+        <button class="btn btn-destaque" onclick="carregar30Convidados()">👥 Carregar 30 Convidados Pré-Preenchidos</button>
+        <button class="btn btn-limpar" onclick="limparConvidados()">🗑️ Limpar Lista</button>
+      </div>
+
+      <!-- Formulário para Cadastrar Novo Convidado (Apenas Nome e Homem/Mulher/Criança) -->
+      <div class="caixa-cadastro-convidado">
+        <h3>➕ Cadastrar Convidado</h3>
+        <div class="form-convidado-linha">
+          <div class="campo campo-flex">
+            <label for="convidadoNome">Nome:</label>
+            <input type="text" id="convidadoNome" placeholder="Ex: Pedro">
+          </div>
+          <div class="campo">
+            <label for="convidadoTipo">Opção:</label>
+            <select id="convidadoTipo">
+              <option value="homem">Homem</option>
+              <option value="mulher">Mulher</option>
+              <option value="crianca">Criança</option>
+            </select>
+          </div>
+          <div class="campo-btn">
+            <button class="btn btn-primario" onclick="adicionarConvidado()">+ Adicionar Convidado</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela de Convidados -->
+      <div class="tabela-container">
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>Opção</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaConvidadosCorpo">
+            <!-- Linhas preenchidas via script.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Resumo da contagem de pessoas -->
+      <div class="painel-contagem">
+        <div class="item-contagem">👨 Homens: <strong id="qtdHomens">0</strong></div>
+        <div class="item-contagem">👩 Mulheres: <strong id="qtdMulheres">0</strong></div>
+        <div class="item-contagem">🧒 Crianças: <strong id="qtdCriancas">0</strong></div>
+        <div class="item-contagem destaque">🎉 Total: <strong id="qtdTotal">0</strong> pessoas</div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         2. PRODUTOS DO CHURRASCO (10 A 20 ITENS COM FOTO)
+         Opções: Selecionar Pré-cadastrado (com filtro) OU Criar Novo
+         =================================================================== -->
+    <section class="card">
+      <h2>2. Escolha ou inserção de produtos</h2>
+      <p class="subtitulo">Selecione produtos pré-cadastrados ou cadastre um novo:</p>
+
+      <!-- Formulários de Adição e Associação -->
+      <div class="painel-adicionar">
+        <!-- Opção A: Selecionar Pré-cadastrado e Associar Convidado -->
+        <div class="caixa-adicionar">
+          <h3>📦 Selecionar do Catálogo e Associar Convidado</h3>
+          <div class="campo">
+            <label for="filtroCategoria">Filtrar por tipo:</label>
+            <select id="filtroCategoria" onchange="aoMudarFiltro()">
+              <option value="todos">Todos os tipos</option>
+              <option value="solido">Apenas Sólidos</option>
+              <option value="liquido">Apenas Líquidos</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="selectPreCadastrado">Produto:</label>
+            <select id="selectPreCadastrado" onchange="aoMudarProdutoCatalogo()"></select>
+          </div>
+          <div class="campo-linha">
+            <div class="campo" style="flex: 2;">
+              <label for="selectConvidadoPreCadastrado">Quem vai levar?:</label>
+              <select id="selectConvidadoPreCadastrado"></select>
+            </div>
+            <div class="campo" style="flex: 1;">
+              <label for="qtdPreCadastrado">Qtd (kg/L):</label>
+              <input type="number" id="qtdPreCadastrado" step="0.1" min="0.1" placeholder="Ex: 0.5">
+            </div>
+          </div>
+          <button class="btn btn-primario" onclick="adicionarPreCadastrado()">+ Associar Convidado ao Produto</button>
+        </div>
+
+        <!-- Opção B: Criar Novo Produto e Associar Convidado -->
+        <div class="caixa-adicionar">
+          <h3>✍️ Criar Novo Produto e Associar</h3>
+          <div class="campo-linha">
+            <div class="campo" style="flex: 2;">
+              <label for="novoNome">Nome do produto:</label>
+              <input type="text" id="novoNome" placeholder="Ex: Cupim na Brasa">
+            </div>
+            <div class="campo" style="flex: 1;">
+              <label for="novoTipo">Tipo:</label>
+              <select id="novoTipo">
+                <option value="solido">Sólido</option>
+                <option value="liquido">Líquido</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo-linha">
+            <div class="campo" style="flex: 2;">
+              <label for="novoConvidadoProduto">Quem vai levar?:</label>
+              <select id="novoConvidadoProduto"></select>
+            </div>
+            <div class="campo" style="flex: 1;">
+              <label for="novoValor">Qtd (kg/L):</label>
+              <input type="number" id="novoValor" step="0.1" min="0.1" placeholder="Ex: 0.5">
+            </div>
+          </div>
+          <button class="btn btn-secundario" onclick="adicionarNovoPersonalizado()">+ Criar Produto e Associar</button>
+        </div>
+      </div>
+
+      <!-- Alerta de validação da quantidade de itens na grade (10 a 20) -->
+      <div id="alertaRegraItens" class="alerta"></div>
+
+      <!-- Aviso explicativo da grade -->
+      <p style="font-size: 0.85rem; color: #475569; margin-bottom: 12px;">
+        💡 <strong>Itens Confirmados:</strong> Produtos que pelo menos uma pessoa selecionou ou inseriu. Clique em <strong>Detalhes</strong> para ver quem e quanto cada pessoa levará.
+      </p>
+
+      <!-- Grade com os Produtos Inseridos (apenas com pessoas associadas) -->
+      <div id="gradeProdutos" class="grade-produtos"></div>
+    </section>
+
+    <!-- ===================================================================
+         3. COMPARATIVO FINAL: PREVISTO vs. SELECIONADO
+         Base: Homem (500g / 2L), Mulher (400g / 1,5L), Criança (200g / 600ml)
+         =================================================================== -->
+    <section class="card">
+      <h2>3. Contabilização e Comparativo Final</h2>
+      <p class="subtitulo">
+        Comparação entre o <strong>consumo previsto</strong> para os 30 convidados e a <strong>quantidade total na lista</strong>:
+      </p>
+
+      <!-- Regras didáticas em destaque -->
+      <div class="regras-consumo">
+        <div class="regra-item">👨 <strong>Homem:</strong> 500g sólido • 2,0 L líquido</div>
+        <div class="regra-item">👩 <strong>Mulher:</strong> 400g sólido • 1,5 L líquido</div>
+        <div class="regra-item">🧒 <strong>Criança:</strong> 200g sólido • 600 ml líquido</div>
+      </div>
+
+      <!-- Tabela Comparativa Final -->
+      <div class="tabela-comparativa-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Consumo Previsto (Necessário)</th>
+            <th>Total na Lista (Produtos)</th>
+            <th>Balanço / Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="celula-categoria"><strong>🥩 SÓLIDOS</strong> (Carnes e Acompanhamentos)</td>
+            <td data-label="Consumo previsto" id="solidoPrevisto">0 kg</td>
+            <td data-label="Total na lista" id="solidoLista">0 kg</td>
+            <td data-label="Balanço / Status" id="solidoStatus">-</td>
+          </tr>
+          <tr>
+            <td class="celula-categoria"><strong>🥤 LÍQUIDOS</strong> (Bebidas e Água)</td>
+            <td data-label="Consumo previsto" id="liquidoPrevisto">0 L</td>
+            <td data-label="Total na lista" id="liquidoLista">0 L</td>
+            <td data-label="Balanço / Status" id="liquidoStatus">-</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p><strong>CHURRAS DO ROSIVAL</strong> • MVP</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
