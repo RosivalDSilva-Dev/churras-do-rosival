@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CHURRASCO NOME DO ALUNO - SCRIPT SIMPLES E FUNCIONAL
+ * CHURRAS DO ROSIVAL - SCRIPT SIMPLES E FUNCIONAL
  * ============================================================================
  */
 
